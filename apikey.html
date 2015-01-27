@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		html { height:100% }
+		body { height: 100%; margin: 0; padding: 0 }
+		#mapdDiv {height: 100%}
+	</style>
+
+	<!-- Access Google Maps API -->
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaaE1muGanaDBVYlEaIyVRVSyBvy13Tz4"></script>
+	<script type="text/javascript">
+
+		function initialize() {
+			var latlng = new google.maps.LatLng(52.417498,-3.441467);
+			var myOptions = {
+				zoom: 8,
+				center: latlng,
+				disableDefaultUI: true, //gets rid of controls and will add them manually below
+				zoomControl: true,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.SMALL,
+					position: google.maps.ControlPosition.BOTTOM_LEFT
+				},
+				panControl: true,
+				mapTypeControl: true,
+				mapTypeControlOptions: {
+					mapTypeIds: [google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID],
+					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+				},
+				scaleControl: true,
+				streetViewControl: true,
+				rotateControl: true,
+				overviewMapControl: true,
+				overviewMapControlOptions: {
+					opened: true
+				}
+			};
+			var map = new google.maps.Map(document.getElementById("mapdDiv"),
+					myOptions);
+			addButtons(map);
+		}
+		
+		function addButtons(map){
+			document.getElementById('btnTerrain').addEventListener('click',function(){
+				map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+			})
+			document.getElementById('btnRoadmap').addEventListener('click',function(){
+				map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+			})
+			document.getElementById('btnSatellite').addEventListener('click',function(){
+				map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+			})
+			document.getElementById('btnHybrid').addEventListener('click',function(){
+				map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+			})
+		}
+		
+		google.maps.event.addDomListener(window, "load", initialize);
+
+</script>
+	
+</head>
+
+<body>
+	<button id="btnTerrain">Terrain</button>
+	<button id="btnRoadmap">Roadmap</button>
+	<button id="btnSatellite">Satellite</button>
+	<button id="btnHybrid">Hybrid</button>
+	<div id="mapdDiv"></div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+     <script src="Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('p#p1').hide();
+            $('a#paragraphAnchor').click(function(){
+                $('p#p1').show(1000);
+            })
+            $('a#paragraphAnchor2').click(function () {
+                $('p#p1').hide(100);
+            })
+            $('a#slideIt').click(function () {
+                $('p#p1').slideDown(1000);
+            })
+            $("#p2").click(function () {
+                alert("clicked second paragraph");
+            });
+        }
+        );
+    </script>
+</head>
+<body>
+    <a href="#" id="paragraphAnchor">Click to read paragraph</a>
+    <br />
+    <a href="#" id="slideIt">Click to slide down paragraph</a>
+    <p id="p1">This is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tagThis is a data tag</p>
+    <p id="p2">This is a the second data tag</p>
+    <a href="#" id="paragraphAnchor2">Click to hide paragraph</a>
+    <div draggable="true" style="Background:red;color:yellow">
+        <h3>This is a heading</h3>
+        <p>This is a paragraph.</p>
+    </div>
+</body>
+</html>
